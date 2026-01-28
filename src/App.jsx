@@ -63,6 +63,7 @@ function App() {
               {/* The TaskBoard component now manages all task lists */}
               <TaskBoard />
             </div>
+          </div>
           </ListProvider>
         </TagProvider>
       </TaskProvider>
