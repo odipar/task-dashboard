@@ -5,30 +5,33 @@ import { PlusIcon } from '@heroicons/react/24/outline';
 import { TaskProvider } from './context/TaskContext';
 import { TagProvider } from './context/TagContext';
 import { ListProvider } from './context/ListContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 import GlobalTaskForm from './features/tasks/components/GlobalTaskForm';
 import TaskBoard from './features/lists/components/TaskBoard';
+import ThemeToggle from './common/components/ThemeToggle';
 
 function App() {
   const [showInput, setShowInput] = useState(false);
 
   return (
-    <TaskProvider>
-      <TagProvider>
-        <ListProvider>
-          <div className="App min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 flex flex-col items-center py-12 px-4" data-testid="app">
-            <div className="w-full max-w-6xl">
-              <motion.div 
-                className="mb-6 bg-white rounded-2xl shadow-soft p-6"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                data-testid="app-header"
-              >
-                <div className="flex justify-between items-center mb-6">
-                  <h1 className="text-3xl font-bold text-neutral-800 tracking-tight">Task Dashboard</h1>
-                  {/* Stats will be displayed from TaskContext */}
-                </div>
+    <ThemeProvider>
+      <TaskProvider>
+        <TagProvider>
+          <ListProvider>
+            <div className="App min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 flex flex-col items-center py-12 px-4" data-testid="app">
+              <div className="w-full max-w-6xl">
+                <motion.div 
+                  className="mb-6 bg-white dark:bg-slate-800 rounded-2xl shadow-soft p-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  data-testid="app-header"
+                >
+                  <div className="flex justify-between items-center mb-6">
+                    <h1 className="text-3xl font-bold text-neutral-800 dark:text-slate-100 tracking-tight">Task Dashboard</h1>
+                    <ThemeToggle />
+                  </div>
                 
                 <AnimatePresence>
                   {showInput ? (
@@ -64,6 +67,7 @@ function App() {
         </ListProvider>
       </TagProvider>
     </TaskProvider>
+    </ThemeProvider>
   );
 }
 
