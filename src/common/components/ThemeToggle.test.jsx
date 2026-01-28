@@ -137,4 +137,30 @@ describe('ThemeToggle Component', () => {
     fireEvent.click(button);
     expect(localStorageMock.setItem).toHaveBeenCalledWith('theme', 'light');
   });
+
+  test('uses system preference when no saved theme exists', () => {
+    // No saved theme in localStorage
+    localStorageMock.getItem.mockReturnValue(null);
+    
+    // Mock matchMedia to return dark mode preference
+    global.matchMedia = vi.fn().mockImplementation(query => ({
+      matches: query === '(prefers-color-scheme: dark)',
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    }));
+    
+    render(
+      <ThemeProvider>
+        <ThemeToggle />
+      </ThemeProvider>
+    );
+    
+    // Should initialize to dark mode based on system preference
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+  });
 });

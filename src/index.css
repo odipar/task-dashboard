@@ -83,14 +83,6 @@
 
   --shadow-soft:
     0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
-
-  /* Dark mode colors */
-  --color-dark-bg-primary: #0f172a;
-  --color-dark-bg-secondary: #1e293b;
-  --color-dark-bg-tertiary: #334155;
-  --color-dark-text-primary: #f1f5f9;
-  --color-dark-text-secondary: #cbd5e1;
-  --color-dark-border: #475569;
 }
 
 /*
@@ -210,7 +202,7 @@ code {
 }
 
 .dark body {
-  background-color: var(--color-dark-bg-primary);
-  color: var(--color-dark-text-primary);
+  background-color: var(--color-slate-900);
+  color: var(--color-slate-100);
 }
 

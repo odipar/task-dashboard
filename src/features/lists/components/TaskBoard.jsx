@@ -204,7 +204,7 @@ function TaskBoard() {
                       <motion.button 
                         type="button"
                         onClick={() => handleDeleteListCompletedTasks(list.id)} 
-                        className="flex items-center text-xs font-medium text-rose-500 hover:text-rose-700 transition-colors px-2 py-1 hover:bg-rose-50 rounded-lg"
+                        className="flex items-center text-xs font-medium text-rose-500 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 transition-colors px-2 py-1 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-lg"
                         disabled={!hasCompletedTasks}
                         whileHover={{ scale: !hasCompletedTasks ? 1 : 1.02 }}
                         whileTap={{ scale: !hasCompletedTasks ? 1 : 0.98 }}
@@ -224,7 +224,7 @@ function TaskBoard() {
         {/* Add new task list button */}
         <motion.button
           type="button"
-          className="add-list-button h-48 rounded-xl border-2 border-dashed border-neutral-200 flex flex-col items-center justify-center text-neutral-400 hover:text-primary-600 hover:border-primary-300 transition-colors"
+          className="add-list-button h-48 rounded-xl border-2 border-dashed border-neutral-200 dark:border-slate-600 flex flex-col items-center justify-center text-neutral-400 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-500 transition-colors"
           onClick={addTaskList}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}

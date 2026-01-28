@@ -19,7 +19,7 @@ function App() {
       <TaskProvider>
         <TagProvider>
           <ListProvider>
-            <div className="App min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 flex flex-col items-center py-12 px-4" data-testid="app">
+            <div className="App min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-slate-900 dark:to-slate-800 flex flex-col items-center py-12 px-4" data-testid="app">
               <div className="w-full max-w-6xl">
                 <motion.div 
                   className="mb-6 bg-white dark:bg-slate-800 rounded-2xl shadow-soft p-6"
@@ -63,10 +63,9 @@ function App() {
               {/* The TaskBoard component now manages all task lists */}
               <TaskBoard />
             </div>
-          </div>
-        </ListProvider>
-      </TagProvider>
-    </TaskProvider>
+          </ListProvider>
+        </TagProvider>
+      </TaskProvider>
     </ThemeProvider>
   );
 }
